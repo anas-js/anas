@@ -1,0 +1,103 @@
+@media (max-width: 1015px) {
+  .index-page {
+    .iam {
+      flex-flow: column-reverse;
+      flex-wrap: wrap;
+
+      .yaer {
+        margin-top: 170px;
+      }
+    }
+  }
+}
+
+@media (max-width: 865px) {
+  //
+  .index-page {
+    .projects {
+      .boxs {
+        flex-wrap: wrap;
+      }
+    }
+
+    .not-perfect {
+      p {
+        font-size: 7.8vw;
+      }
+
+      h2 {
+        font-size: 20.2vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 615px) {
+  //
+  .index-page {
+    .learn {
+        margin-top: 150vh; // !!!!!!!!!!
+      h2 {
+        font-size: 15vw;
+      }
+    }
+
+    .education {
+      h2 {
+        font-size: 9.4vw;
+
+        span {
+          font-size: 31.4vw;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 545px) {
+  //
+  .index-page {
+    .projects {
+      .boxs {
+        > div {
+          flex: 1 1 100%;
+          margin-top: 10px;
+        }
+      }
+    }
+
+     .iam {
+        .text {
+            h2 {
+                font-size: 19vw;
+            }
+            .box-text {
+
+                p {
+                 
+                    font-size: 10vw;
+                }
+            }
+        }
+
+        .yaer {
+            h2 {
+                font-size: 45vw;
+            }
+        }
+       
+     }
+
+     .skills {
+        h2 {
+            // font-size: ;
+            font-size: 19vw;
+            // color: #000;
+        }
+     }
+     .footer {
+        margin-bottom: 40vh;
+     }
+  }
+}
