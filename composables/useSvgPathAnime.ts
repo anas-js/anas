@@ -1,6 +1,6 @@
 export const useSvgPathAnime = () => {
     onMounted(() => {
-      document.fonts.ready.then(() => {
+   
         const svgs = document.querySelectorAll("*[data-svg-path-anime]") as NodeListOf<HTMLElement>;
 
         svgs.forEach((svg) =>{
@@ -24,6 +24,6 @@ export const useSvgPathAnime = () => {
               });
             
         })
-    })
+  
   })
 }

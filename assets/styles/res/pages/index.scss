@@ -8,6 +8,11 @@
         margin-top: 170px;
       }
     }
+    .not-perfect {
+      .textSVG {
+        width: 90%;
+    }
+    }
   }
 }
 
@@ -89,15 +94,28 @@
        
      }
 
-     .skills {
-        h2 {
-            // font-size: ;
-            font-size: 19vw;
-            // color: #000;
-        }
+     .not-perfect {
+      .decore {
+        width: 15vw;
+      }
      }
+
      .footer {
         margin-bottom: 40vh;
+       p {
+          font-size: 7vw;
+      }
+
+      h2 {
+        font-size: 15vw;
+      }
+
+      .about {
+        display: block;
+        li {
+         margin-top: 10px;
+        }
+      }
      }
   }
 }

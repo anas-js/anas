@@ -68,12 +68,15 @@ export default defineNuxtPlugin(async (nuxt) => {
 
   let loading = false;
 
-  nuxt.hook("page:loading:start", () => {
-    if (!loading) {
-      document.head.append(loadingStyle);
-      document.body.appendChild(loadingHtml);
-    }
-  });
+  // console.log("app start");
+
+  if (!loading) {
+    document.head.append(loadingStyle);
+    document.body.appendChild(loadingHtml);
+  }
+  // nuxt.hook("page:loading:start", () => {
+
+  // });
 
   nuxt.hook("page:loading:end", () => {
     if (!loading) {

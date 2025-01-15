@@ -3,7 +3,7 @@ export const useMoveTopAnime = () => {
        
   
     onMounted(() => {
-        document.fonts.ready.then(() => {
+      
         const texts = document.querySelectorAll("*[data-move-top-anime]") as NodeListOf<HTMLElement>;
         texts.forEach((ele) =>{
             const newElemenet =  document.createElement(ele.tagName);
@@ -31,6 +31,6 @@ export const useMoveTopAnime = () => {
                 }
             })
         })
-    });
+  
     })
 }
