@@ -1,0 +1,11 @@
+.gsap-text-wrapper {
+     overflow: hidden;
+     height: auto;
+     display: inline-block;
+     margin-top: -25px;
+     vertical-align: middle;
+
+     span {
+        display: inline-block;
+     }
+}
