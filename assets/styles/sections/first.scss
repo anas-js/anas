@@ -146,7 +146,7 @@
       font-size: 6vh;
       font-family: "Gloock";
       // width: 700px;
-      width: 65vh;
+      width: 70vh;
       color: colors.$color_b;
 
       .colred {
@@ -156,12 +156,23 @@
       .error {
         position: relative;
         svg {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          left: 0;
-        }
+          
+          &.line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+          }
 
+          &.path {
+            // background-color: #000;
+            position: absolute;
+            top: 100%;
+            left: -3vh;
+            width: 33vh;
+          }
+  
+        }
         .flag {
           position: absolute;
           background-color: #F46844;
@@ -186,6 +197,10 @@
             bottom: 0.4vh;
           }
         }
+      }
+
+      .textMaking {
+        white-space: nowrap;
       }
     }
   }

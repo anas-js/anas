@@ -187,7 +187,11 @@ onMounted(() => {
 });
 
 const errorPathSvg = ref<HTMLElement>(null!);
-
+const mouse = ref<HTMLElement>(null!);
+const mousePath = ref<SVGPathElement>(null!);
+const textWho = ref<SVGPathElement>(null!);
+const textEnjoys = ref<SVGPathElement>(null!);
+const textMaking = ref<SVGPathElement>(null!);
 onMounted(() => {
   $gsap.set(errorPathSvg.value, {
     drawSVG: 0,
@@ -202,43 +206,130 @@ onMounted(() => {
     },
   });
 
-
   // onLeave(e) {
   //               $gsap.set( (e.animation?.targets()[2] as HTMLElement).parentElement, { overflow: 'unset' });
   //             },
   //             onEnterBack(e) {
-            
+
   //               $gsap.set( (e.animation?.targets()[2] as HTMLElement).parentElement, { overflow: 'hidden' });
   //             }
 
-  $gsap.fromTo(description.value.querySelector(".flag"),{
-    rotateZ : 49,
-    translateX: "-9vh",
-    translateY: "2vh",
-    scale: 0
-  }, {
-    rotateZ : 18,
-    scale: 1,
-    translateX: 0,
-    translateY: 0,
-    scrollTrigger: {
-      start: "700px top",
-      end: "750px top",
-      scrub: 1,
-      // markers:true
+  $gsap.fromTo(
+    description.value.querySelector(".flag"),
+    {
+      rotateZ: 49,
+      translateX: "-9vh",
+      translateY: "2vh",
+      scale: 0,
     },
-    onStart() {
-
-     $gsap.set(this.targets()[0].parentElement.parentElement.parentElement, { overflow: 'unset' });
-    },
-    // onComplete() {
-    //   console.log('coplate');
-    // },
-    onReverseComplete() {
-      $gsap.set(this.targets()[0].parentElement.parentElement.parentElement, { overflow: 'hidden' });
+    {
+      rotateZ: 18,
+      scale: 1,
+      translateX: 0,
+      translateY: 0,
+      scrollTrigger: {
+        start: "700px top",
+        end: "750px top",
+        scrub: 1,
+        // markers:true
+      },
+      onStart() {
+        $gsap.set(this.targets()[0].parentElement.parentElement.parentElement, {
+          overflow: "unset",
+        });
+      },
+      // onComplete() {
+      //   console.log('coplate');
+      // },
+      onReverseComplete() {
+        $gsap.set(this.targets()[0].parentElement.parentElement.parentElement, {
+          overflow: "hidden",
+        });
+      },
     }
-    
+  );
 
+  const timeline = $gsap.timeline();
+  // rotateX(45deg)
+
+  timeline.fromTo(
+    mouse.value,
+    {
+      scale: 0,
+    },
+    {
+      duration: 2,
+      scale: 1,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        start: "800px top",
+        end: "950px top",
+        scrub: 1,
+      
+      },
+      motionPath: {
+        path: mousePath.value,
+        align: mousePath.value,
+        alignOrigin: [0.5, 0.5],
+      },
+    }
+  );
+
+  timeline.to(mouse.value,{
+    rotateX: 50,
+    duration: 1,
+    scrollTrigger: {
+        start: "1200px top",
+        end: "1200px top",
+        scrub: 1,
+  
+      },
+  })
+
+  $gsap.to([errorPathSvg.value,mouse.value,description.value.querySelector(".flag")],{
+    opacity : 0,
+    scrollTrigger: {
+        start: "1400px top",
+        end: "1400px top",
+        scrub: 1,
+        // markers: true,
+      },
+  });
+
+  $gsap.to(textWho.value,{
+    duration: 2,
+    text: "who's",
+    scrollTrigger: {
+        start: "1450px top",
+        end: "1550px top",
+        scrub: 1,
+      
+        
+      },
+  });
+
+  $gsap.to(textEnjoys.value,{
+    duration: 2,
+    text: "crazy",
+    scrollTrigger: {
+        start: "1550px top",
+        end: "1600px top",
+        scrub: 1,
+        // markers: true,
+        
+      },
+  });
+
+  $gsap.to(textMaking.value,{
+    duration: 2,
+    text: "about making",
+    scrollTrigger: {
+        start: "1600px top",
+        end: "1700px top",
+        scrub: 1,
+        // markers: true,
+        
+      },
   });
 });
 </script>
@@ -274,21 +365,17 @@ onMounted(() => {
           <GsapText
             :options="{
               stagger: 0.07,
-              scrollTrigger: { start: '200px top', end: '400px top', scrub: 1, 
-
-              
-              },
-              
-
+              scrollTrigger: { start: '200px top', end: '400px top', scrub: 1 },
             }">
-            Someone who
+            Someone <span ref="textWho">who</span>
             <span class="colred error">
-              enjoys
+             <span ref="textEnjoys">enjoys</span>
               <svg
                 width="307"
                 height="25"
                 viewBox="0 0 307 25"
                 fill="none"
+                class="line"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   ref="errorPathSvg"
@@ -297,13 +384,25 @@ onMounted(() => {
                   stroke-width="5"
                   stroke-linecap="round" />
               </svg>
-              <span class="flag">Crazy</span>
+              <span class="flag">
+                Crazy
+                <svg
+                  class="path"
+                  viewBox="0 0 256 452"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    ref="mousePath"
+                    d="M255.76 451C255.76 451 77.4123 419.909 22.7601 334C-47.9371 222.869 76.2601 1 76.2601 1" />
+                </svg>
+              </span>
             </span>
-            making
+            <span class="textMaking" ref="textMaking">making</span>
             <span class="colred">awesome</span>
             things.
           </GsapText>
         </h1>
+        <img ref="mouse" src="@/assets/images/mouse.svg" />
       </div>
     </div>
   </div>
